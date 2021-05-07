@@ -1,0 +1,18 @@
+
+<nav class="nav-bar">
+  <span style="font-size: 3em; color: white; padding-left:10px; cursor:pointer;">
+    <i class="fas fa-bars " (click)="toggleSlide()" ></i>
+  </span>
+</nav>
+<div class="left-slider" *ngIf="leftSideVisibleState" [@sliderLeft]>
+  <br>
+  <p class="txt-welcome">Hello Amila</p>
+  <hr style="background-color:white">
+  <ul class="nav-list">
+    <li><a routerLink="/DashBord/configureRoom">Room Configuration</a></li>
+    <li><a routerLink="/DashBord/manageReservation">Manage Reservation</a></li>
+    <li><a routerLink="/DashBord/reviews">Reviews</a></li>
+    <li><a routerLink="/DashBord/signOut">Sign Out</a></li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

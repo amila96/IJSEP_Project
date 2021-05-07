@@ -14,6 +14,11 @@ import { FooterComponent } from './component/footer/footer.component';
 import { DefaultPageComponent } from './component/dash-board/pages/default-page/default-page.component';
 import { RegisterHotelPageComponent } from './component/dash-board/pages/register-hotel-page/register-hotel-page.component';
 import { CardsComponent } from './component/dash-board/pages/default-page/items/cards/cards.component';
+import { ConfigureRoomPageComponent } from './component/dash-board/pages/configure-room-page/configure-room-page.component';
+import { ManageRoomPageComponent } from './component/dash-board/pages/manage-room-page/manage-room-page.component';
+import { ManageReservationComponent } from './component/dash-board/pages/manage-reservation/manage-reservation.component';
+import { ReviewsPageComponent } from './component/dash-board/pages/reviews-page/reviews-page.component';
+import { SignOutPageComponent } from './component/dash-board/pages/sign-out-page/sign-out-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { CardsComponent } from './component/dash-board/pages/default-page/items/
     FooterComponent,
     DefaultPageComponent,
     RegisterHotelPageComponent,
-    CardsComponent
+    CardsComponent,
+    ConfigureRoomPageComponent,
+    ManageRoomPageComponent,
+    ManageReservationComponent,
+    ReviewsPageComponent,
+    SignOutPageComponent
   ],
   imports: [
     BrowserModule,
