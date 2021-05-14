@@ -1,1 +1,81 @@
-<p>configure-room-page works!</p>
+<div class="main-wrap container">
+  <p class="header-text">Room Configuration</p>
+  <hr>
+  <div class="row" style="margin:0">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <label for="roomName">Room Name</label>
+        <input type="text" class="form-control" id="roomName" aria-describedby="roomNameHelp" placeholder="Master">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <label for="roomType">Room Type</label>
+        <select class="form-control" id="roomType">
+          <option *ngFor="let tempType of roomTypeArray" value="{{tempType}}">{{tempType}}</option>
+        </select>
+      </div>
+
+
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <label for="Sleeps">Sleeps</label>
+        <input type="number" class="form-control" id="Sleeps" aria-describedby="sleepHelp">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="number" class="form-control" id="cost" aria-describedby="sleepHelp">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <label for="count">Room Count</label>
+        <input type="number" class="form-control" id="count" aria-describedby="countHelp">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <label for="size">Room Size(ft<sup>2</sup>)</label>
+        <input type="number" class="form-control" id="size" aria-describedby="sizeHelp">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="facilities">Most popular facilities</label>
+        <input maxlength="50" [(ngModel)]="selectedFacilities" (keyup.enter)="addToList()" type="text" class="form-control" id="facilities" aria-describedby="facilitiesHelp">
+        <p *ngIf="selectedFacilitiesError" class="alert alert-danger" style="margin-top: 3px"> This value is required</p>
+      </div>
+    </div>
+    <div class="col-12 facilities-list">
+      <ul class="facilities">
+        <li *ngFor="let tempFac of facilitiesList; index as num">
+          <span>{{tempFac}} &nbsp;&nbsp;<i class="far fa-times-circle" style="cursor:pointer" (click)="removeFromList(num)"></i></span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-12">
+      <input multiple type="file" accept="image/*" id="selectedFile" style="display:none" (change)="changeFiles($event)">
+      <button type="button" onclick="document.getElementById('selectedFile').click()" class="btn btn-primary">Select your Images</button>
+      <br><br>
+      <div class="main_wrap_for_selected_images">
+        <img [src]="urls[0]" alt="room_image" class="selected_image img-thumbnail">
+        <img [src]="urls[1]" alt="room_image" class="selected_image img-thumbnail">
+        <img [src]="urls[2]" alt="room_image" class="selected_image img-thumbnail">
+      </div>
+      <br>
+      <div class="main_wrap_for_selected_images">
+        <img src="https://www.maids.com/blog/wp-content/uploads/2020/01/bigstock-Hotel-Bed-1653767.jpg" alt="room_image" class="selected_image img-thumbnail">
+        <img src="https://www.airmauritius.com/images/default-source/inspiration/images/2014/03/LBM_LUX_Junior_Suite_2-2.jpg" alt="room_image" class="selected_image img-thumbnail">
+        <img src="https://www.cabinetcity.net/wp-content/uploads/2018/02/ritz-carlton-kitchen-los-angeles.jpg" alt="room_image" class="selected_image img-thumbnail">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
