@@ -1,17 +1,19 @@
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
 <div class="main-wrap container">
   <p class="header-text">Room Configuration</p>
   <hr>
   <div class="row" style="margin:0">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="form-group">
-        <label for="roomName">Room Name</label>
-        <input type="text" class="form-control" id="roomName" aria-describedby="roomNameHelp" placeholder="Master">
+        <label  for="roomName">Room Name</label>
+        <input [(ngModel)]="txtRoomName" type="text" class="form-control" id="roomName" aria-describedby="roomNameHelp" placeholder="Master">
       </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="form-group">
-        <label for="roomType">Room Type</label>
-        <select class="form-control" id="roomType">
+        <label  for="roomType">Room Type</label>
+        <select [(ngModel)]="txtRoomType" class="form-control" id="roomType">
           <option *ngFor="let tempType of roomTypeArray" value="{{tempType}}">{{tempType}}</option>
         </select>
       </div>
@@ -20,26 +22,35 @@
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="form-group">
-        <label for="Sleeps">Sleeps</label>
-        <input type="number" class="form-control" id="Sleeps" aria-describedby="sleepHelp">
+        <label  for="Sleeps">Sleeps</label>
+        <input [(ngModel)]="txtRoomSleeps" type="number" class="form-control" id="Sleeps" aria-describedby="sleepHelp">
       </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="form-group">
         <label for="cost">Cost</label>
-        <input type="number" class="form-control" id="cost" aria-describedby="sleepHelp">
+        <input [(ngModel)]="txtRoomCost" type="number" class="form-control" id="cost" aria-describedby="sleepHelp">
       </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="form-group">
         <label for="count">Room Count</label>
-        <input type="number" class="form-control" id="count" aria-describedby="countHelp">
+        <input [(ngModel)]="txtRoomCount" type="number" class="form-control" id="count" aria-describedby="countHelp">
       </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="form-group">
         <label for="size">Room Size(ft<sup>2</sup>)</label>
-        <input type="number" class="form-control" id="size" aria-describedby="sizeHelp">
+        <input [(ngModel)]="txtRoomSize" type="number" class="form-control" id="size" aria-describedby="sizeHelp">
+      </div>
+    </div>
+    <div class="col-12">
+      <mat-checkbox [(ngModel)]="txtPetAllowed" class="example-margin">Pet Allowed</mat-checkbox>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="descriptionId">Description</label>
+        <textarea [(ngModel)]="txtDescription" class="form-control" id="descriptionId" rows="3"></textarea>
       </div>
     </div>
     <div class="col-12">
@@ -61,10 +72,13 @@
       <button type="button" onclick="document.getElementById('selectedFile').click()" class="btn btn-primary">Select your Images</button>
       <br><br>
       <div class="main_wrap_for_selected_images">
-        <img [src]="urls[0]" alt="room_image" class="selected_image img-thumbnail">
-        <img [src]="urls[1]" alt="room_image" class="selected_image img-thumbnail">
-        <img [src]="urls[2]" alt="room_image" class="selected_image img-thumbnail">
+        <img *ngIf="urls[0]!=null" [src]="urls[0]" alt="room_image" class="selected_image img-thumbnail">
+        <img *ngIf="urls[1]!=null"[src]="urls[1]" alt="room_image" class="selected_image img-thumbnail">
+        <img  *ngIf="urls[2]!=null" [src]="urls[2]" alt="room_image" class="selected_image img-thumbnail">
       </div>
+      <p style="text-align:right">
+        <button mat-raised-button color="primary" (click)="uploadRoomData()">Upload Data</button>
+      </p>
       <br>
       <div class="main_wrap_for_selected_images">
         <img src="https://www.maids.com/blog/wp-content/uploads/2020/01/bigstock-Hotel-Bed-1653767.jpg" alt="room_image" class="selected_image img-thumbnail">

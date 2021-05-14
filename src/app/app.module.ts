@@ -19,6 +19,8 @@ import { ManageRoomPageComponent } from './component/dash-board/pages/manage-roo
 import { ManageReservationComponent } from './component/dash-board/pages/manage-reservation/manage-reservation.component';
 import { ReviewsPageComponent } from './component/dash-board/pages/reviews-page/reviews-page.component';
 import { SignOutPageComponent } from './component/dash-board/pages/sign-out-page/sign-out-page.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SignOutPageComponent } from './component/dash-board/pages/sign-out-page
     BrowserAnimationsModule,
     FormsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
